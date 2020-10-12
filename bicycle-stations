@@ -40,6 +40,6 @@ response = requests.request("GET",url)
 response_json = json.loads(response.text.encode("utf8"))
 return response_json.get("records",[])
 
-result1 = collection.find({'records.fields.commune': {'$eq': 'LILLE'}})
+result1 = collection.find({'records.fields.commune': {'$eq': 'VilleLille'}})
 
 pprint.pprint(list(result1))
