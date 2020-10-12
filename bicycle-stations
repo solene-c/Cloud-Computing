@@ -23,7 +23,7 @@ response_json = json.loads(response.text.encode("utf8"))
 return response_json.get("records",[])
 
 def getVilleLyon():
-url = "https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=vlille-realtime&q=&rows=3000&facet=libelle&facet=nom&facet=commune&facet=etat&facet=type&facet=etatconnexion"
+url = "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=1.1.0&request=GetFeature&outputFormat=geojson&typename=pvo_patrimoine_voirie.pvostationvelov"
 response = requests.request("GET",url)
 response_json = json.loads(response.text.encode("utf8"))
 return response_json.get("records",[])
@@ -35,11 +35,11 @@ response_json = json.loads(response.text.encode("utf8"))
 return response_json.get("records",[])
 
 def getVilleRennes():
-url = "https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=vlille-realtime&q=&rows=3000&facet=libelle&facet=nom&facet=commune&facet=etat&facet=type&facet=etatconnexion"
+url = ""
 response = requests.request("GET",url)
 response_json = json.loads(response.text.encode("utf8"))
 return response_json.get("records",[])
 
-result1 = collection.find({'records.fields.commune': {'$eq': 'LILLE'}})
+result1 = collection.find({'records.fields.commune': {'$eq': 'VilleLille'}})
 
 pprint.pprint(list(result1))
